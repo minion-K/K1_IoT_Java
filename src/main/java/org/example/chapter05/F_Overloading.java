@@ -23,4 +23,7 @@ package org.example.chapter05;
 //  , 실질적으로 필요한 구현 메서드 찾기에 어려움(복잡성 증가)
 
 public class F_Overloading {
+    public static void main(String[] args) {
+        System.out.println("커밋 테스트");
+    }
 }
