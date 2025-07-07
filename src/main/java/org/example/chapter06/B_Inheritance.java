@@ -58,7 +58,7 @@ class SmartTv extends Tv {
     }
 }
 
-public class B_inheritance {
+public class B_Inheritance {
     public static void main(String[] args) {
         Dog choco = new Dog();
         choco.name = "초코";
