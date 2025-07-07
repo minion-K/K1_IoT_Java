@@ -42,7 +42,24 @@ class MyMath {
 //        : 자바 컴파일러가 반환 타입의 void를 읽는 경우
 //          , 해당 메서드의 마지막에 return;을 자동 추가
     }
+//    조건부 반환 형식
+    int max(int a, int b){
+//        정수 a, b를 비교하여 둘 중 더 큰 값을 반환
+//        if(a > b) return a;
+//        else return b;
+        int result;
+         if(a > b) result = a;
+         else result = b;
 
+         return result;
+    }
+
+    int min(int a, int b){
+//        삼항 연산자를 사용하여 조건부 반환
+//        return 조건식 ? 조건이 참인 경우 : 조건이 거짓인 경우;
+//        return a > b ? b : a;
+        return a < b? a : b;
+    }
 }
 
 public class C_Method {
