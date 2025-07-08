@@ -38,7 +38,7 @@ class Student {
     }
 
 //    cf) getter는 단순한 데이터의 반환 뿐만 아니라, 데이터 가공 역할을 하기도 한다.
-    public String  getAge() {
+    public String getAge() {
         if (age > 19) {
             return "성인";
         }
