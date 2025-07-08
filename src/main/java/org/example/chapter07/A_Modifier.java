@@ -28,7 +28,7 @@ import org.example.otherPackage.*;
 //      >> 클래스 파일의 경우 작성 가능
 
 
-// protected class PretectedClass() {} - 클래스 자체에 사용 불가 (중첩 클래스만 가능)
+// protected class ProtectedClass() {} - 클래스 자체에 사용 불가 (중첩 클래스만 가능)
 class Modifier {}
 
 // 2. 접근 제어자 범위
