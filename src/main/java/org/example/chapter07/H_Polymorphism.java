@@ -54,7 +54,7 @@ public class H_Polymorphism {
 //        : 참조변수값 instanceof 클래스타입
 //        > 해당 객체가 특정 클래스의 인스턴스인지 또는 그 클래스를 상속받은 자식클래스의 인스턴스인지 확인
 //        > boolean 타입으로 반환
-//        업캐스팅 된 객테를 다운캐스팅 할 경우 instanceof 클래스타입의 객체가 맞는지 확인 후 캐스팅
+//        업캐스팅 된 객체를 다운캐스팅 할 경우 instanceof 클래스타입의 객체가 맞는지 확인 후 캐스팅
         if(subway instanceof Vehicle) {
 //            subway 객체가 Vehicle 인스턴스 || Vehicle을 상속받은 인스턴스 일 경우
             subway.depart();
