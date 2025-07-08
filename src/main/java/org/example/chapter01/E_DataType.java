@@ -42,6 +42,10 @@ public class E_DataType {
         int intValue = 287239874;
         long longValue = 123123123123L; // long 타입은 숫자 뒤에 알파벳 L, l을 써서 표기(대문자 권장)
 
+        System.out.println(byteValue);
+        System.out.println(shortValue);
+        System.out.println(intValue);
+        System.out.println(longValue);
 //        1-2) 문자형: char (Character)
 //        : 2byte, 단일 문자 저장만 가능
 //        : 홑따옴표(작은 따옴표)로 표기
@@ -51,11 +55,16 @@ public class E_DataType {
 //        char gender = '남자'; - 단일 문자만 저장 가능
         char gender = '남';
 
+        System.out.println(grade);
+        System.out.println(lastName);
+        System.out.println(gender);
 //        1-3) 실수형: float(4) < double(8)
 //        : 부동 소수점이 있는 수
         float dollar1 = 32.123F; // 데이터 값 뒤에 알파벳 F, f 사용
         double dollar2 = 32.123;
 
+        System.out.println(dollar1);
+        System.out.println(dollar2);
 //        cf) 실수형의 정밀도(유효 소수 자릿수)
 //        1) float: 정수 부분을 포함한 약 7자리 정도까지 정확하게 표현
         float f1 = 123.456789F;
@@ -81,6 +90,9 @@ public class E_DataType {
         boolean isLogin = true;
         boolean isLightOn = false;
 
+        System.out.println(isMarried);
+        System.out.println(isActive);
+        System.out.println(hasSnack);
 //        2) 참조 자료형
 //        : 기본 자료형을 기초로 만들어진 자료형
 //        : 실제 데이터 값 X, 데이터가 저장된 주소값을 가지는 자료형
@@ -89,7 +101,7 @@ public class E_DataType {
 //        : 문자열(문자 여러 개)을 저장하는 데 사용
 //        : 반드시 쌍따옴표(큰따옴표)를 사용하여 문자열 작성
 
-        String welcomeMassage = "만나서 반값습니다.";
+        String welcomeMassage = "만나서 반갑습니다.";
         System.out.println(welcomeMassage);
 
 //        == 데이터 타입 정리 ==
@@ -108,12 +120,16 @@ public class E_DataType {
 //        <<실습>>
 //        :학생 이름, 학생 나이, 학생 키, 학생 성별,('M','F' - 단일 문자), 학생 여부
 //              변수 선언과 본인의 데이터로 초기화
-        String studentName = "권민현";
+        String studentName = "홍길동";
         int studentAge = 31;
         double studentHeight = 178.2;
         char studentGender = 'M';
         boolean isStudent = true;
 
+        System.out.println(studentName);
+        System.out.println(studentAge);
+        System.out.println(studentGender);
+        System.out.println(isStudent);
 //        String studentName = "이도경";
 //        하나의 스코프(역역) 내에서는 동일한 변수명 사용 불가!
 //        : 스코프는 {}로 구분
