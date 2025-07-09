@@ -70,7 +70,7 @@ public class Exception02 {
         } catch (Exception e) {
 //            cf) Exception 클래스
 //            : 자바 전체 예외의 최상위 클래스
-//            : 예기치 못한 예외 발생 방지를 위해 세부적인 예외 작성의 마지막에 첨부
+//            : 예기치 못한 예외 발생 방지를 위해 세부적인 예외 작성의 마지막에 첨부!
             System.out.println("초가 예외 발생: " + e.getMessage());
         } finally {
 //            cf) 예외 발생 여부와 상관없이 항상 실행되는 코드 블록
