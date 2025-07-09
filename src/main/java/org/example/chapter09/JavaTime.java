@@ -60,6 +60,11 @@ public class JavaTime {
 //        DateTimeFormatter: LocalDateTime의 날짜 | 시간 데이터를 원하는 패턴으로 변경
 //        .ofPattern(원하고자 하는 패턴을 문자열로 전달)
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-MM-dd HH:mm:ss");
+        
+//        cf) 포맷 기호 - 대소문자 구분
+//        y(연도), M(월), d(일) / H(시), h(시), m(분), s(초)
+//        - H는 24시간제 (권장)
+//        - h는 12시간제
 
 //        변경할 날짜 | 시간 데이터.format(원하는 포맷형식)
         System.out.println(example.format(formatter)); // 25-07-09 16:44:55
