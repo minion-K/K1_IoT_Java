@@ -71,7 +71,7 @@ public class F_Practice {
 
 //        객체 배열 & 다형성 적용 ==
         MobileApp[] apps ={
-//                생성과 동시에 업캐스팅 - 묵시적 형 변환
+//                생성과 동시에 업캐스팅 - 묵시적 형 변환!
                 new GameApp(),
                 new SocialApp("Facebook"),
                 new SocialApp("kakaoTalk")
