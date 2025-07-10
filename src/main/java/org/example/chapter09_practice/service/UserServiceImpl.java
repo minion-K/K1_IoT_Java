@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService{
                 return user;
             }
         }
-        throw new UserNotFoundException("사용자 ID에 " + id + "값이 없습니다.");
+        throw new UserNotFoundException("사용자 ID에 " + id + "값이 없습니다. (조회 실패)");
 
     }
 
@@ -53,5 +53,44 @@ public class UserServiceImpl implements UserService{
 //        사용자 특정 id 값으로 사용자 정보 반환 || 예외 발생
         User user = getUserById(id);
         user.setEmail(newEmail);
+    }
+
+    @Override
+    public void deleteUser(int id) {
+//        리스트 요소 제거
+//        리스트.remove(제거할 요소);
+//        cf) 제거할 요소의 타입은 리스트의 요소 타입과 일치
+        User userToDelete = null; // 전체 리스트에서 특정 id와 일치하는 사용자 정보를 담을 변수 선언
+
+        for(User user: userList) {
+            if(user.getId() == id) {
+                userToDelete = user;
+                break; // 반복문의 종료
+//                cf) return: 메서드의 종료
+            }
+        }
+
+        if(userToDelete == null) {
+//            삭제하고자 하는 if의 사용자가 없음
+            throw new UserNotFoundException("사용자 ID에 " + id + "값이 없습니다. (삭제 실패)");
+        }
+
+//        삭제 가능
+        userList.remove(userToDelete);
+    }
+
+    @Override
+    public List<User> findUsersByName(String name) {
+//        반환값을 담을 변수 선언 & 초기화
+        List<User> result = new ArrayList<>();
+        
+        for(User user: userList) {
+//            전체 사용자를 순회하며 매개변수의 이름값과 일치하는 경우 result에 삽입
+            if(user.getName().equals(name)){
+//                문자열A.equals(문자열B) - 결과값을 boolean으로 반환
+                result.add(user);
+            }
+        }
+        return result;
     }
 }
