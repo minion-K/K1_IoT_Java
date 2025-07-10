@@ -1,4 +1,4 @@
-package org.example.test0710.자바OOP구현문제;
+package org.example.Test0710.자바OOP구현문제;
 
 interface Playable {
     void play();
