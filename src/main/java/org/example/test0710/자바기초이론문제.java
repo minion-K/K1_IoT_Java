@@ -1,4 +1,4 @@
-package org.example.Test0710;
+package org.example.test0710;
 
 public class 자바기초이론문제 {
 
