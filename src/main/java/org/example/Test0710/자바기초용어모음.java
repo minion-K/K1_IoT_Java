@@ -3,6 +3,7 @@ package org.example.Test0710;
 public class 자바기초용어모음 {
 
     /*
+
     * public: 모든 패키지나 클래스에서 사용 가능
     * protected: 같은 패키지 내에서 사용 가능, 패키지가 다르다면 해당 클래스를 상속 받은 하위클래스 내에서 사용 가능
     * default: 같은 패키지 내에서 사용 가능

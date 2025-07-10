@@ -1,5 +1,6 @@
 package org.example.Test0710.자바OOP구현문제;
 
+
 class Animal {
     String name;
     void makeSound() {

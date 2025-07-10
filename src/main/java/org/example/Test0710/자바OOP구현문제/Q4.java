@@ -25,13 +25,13 @@ public class Q4 {
         Playable guitar = new Guitar();
         guitar.play();
 
-        Playable[] instruments = {
-                new Piano(),
-                new Guitar()
-        };
-
-        for(Playable instrument: instruments) {
-            instrument.play();
-        }
+//        Playable[] instruments = {
+//                new Piano(),
+//                new Guitar()
+//        };
+//
+//        for(Playable instrument: instruments) {
+//            instrument.play();
+//        }
     }
 }
