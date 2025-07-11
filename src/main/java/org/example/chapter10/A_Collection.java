@@ -6,7 +6,7 @@ package org.example.chapter10;
 // : frame(틀) + work(일하다)
 // - 제공받은 일정한 요소와 틀, 규약을 가지고 무언가를 만드는 일
 
-// 1. 컬렌션 프레임워크 (Collection Framework)
+// 1. 컬렉션 프레임워크 (Collection Framework)
 // : 데이터를 저장하고 처리하는 자료구조의 표준화 된 설계
 // - 다양한 자료구조를 제공, 데이터의 효율적인 관리를 지원
 
