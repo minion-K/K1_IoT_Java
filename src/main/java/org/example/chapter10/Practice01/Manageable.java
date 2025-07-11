@@ -13,6 +13,6 @@ public interface Manageable {
 //    검색 기능
     List<Item> search(String keyword);
     List<Item> searchByCategory(String category);
-    List<Item> searchByPrice(int minPrice, int MaxPrice);
+    List<Item> searchByPriceRange(int minPrice, int MaxPrice);
 
 }
