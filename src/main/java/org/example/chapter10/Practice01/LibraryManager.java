@@ -16,7 +16,7 @@ public class LibraryManager implements Manageable{
 
     @Override
     public void listAll() {
-        // 전체 조회: isEmpty()로 요소값 존재 여부 확인에 따라 로직 철
+        // 전체 조회: isEmpty()로 요소값 존재 여부 확인에 따라 로직 처리
         if(items.isEmpty()) {
             System.out.println("No Items is the library");
         } else {
