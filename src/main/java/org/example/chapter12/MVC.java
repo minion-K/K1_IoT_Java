@@ -43,8 +43,83 @@ package org.example.chapter12;
 *       >> Spring Boot (Spring MVC)
 * */
 
+
+// - 학교 급식 시스템 -
+// Model(모델): 급식표(데이터) - 급식 메뉴가 적힌 종이
+// View(뷰): 칠판(화면) - 학생들이 확인하는 곳
+// Controller(컨트롤러): 영양사 선생님 - 급식표 내용을 업데이트하고, 칠판에 알려주는 역할
+
+// MVC 동작 흐름(원리)
+// 학생(사용자) >> View(화면 클릭) >> Controller(영양사) >> Model(급식표) 조회
+//      >> Controller가 View에 전달 >> View가 화면 출력
+
+// 1. Model: 데이터를 저장
+class LunchMenu {
+    private String menu;
+
+    public String getMenu() { return menu; }
+    public void setMenu(String menu) {
+        this.menu = menu;
+    }
+}
+
+// 2. View: 데이터를 보여주는 역할
+class LunchView {
+    public void displayMenu(String menu) {
+        if(menu == null || menu.isBlank()) {
+            System.out.println("오늘은 급식이 없습니다.");
+        } else {
+            System.out.println("오늘 급식 메뉴: " + menu);
+        }
+    }
+}
+
+// 3. Controller: Model과 View를 연결하는 역할
+class LunchController {
+    private LunchMenu model;
+    private LunchView view;
+
+    public LunchController(LunchMenu model, LunchView view) {
+        this.model = model;
+        this.view = view;
+    }
+
+//    모델에 데이터를 저장
+    public void setLunchMenu(String menu) {
+        model.setMenu(menu);
+    }
+
+//    모델 데이터를 뷰에 전달
+    public void updateView() {
+        String menu = model.getMenu();
+        view.displayMenu(menu);
+    }
+
+    public void studentRequestMenu() {
+        System.out.println("[학생 요청] 오늘 급식 뭐에요?");
+        updateView();
+    }
+}
 public class MVC {
     public static void main(String[] args) {
-        
+//        == 학교 급식 시스템 ==
+        LunchMenu menu = new LunchMenu();
+        LunchView view = new LunchView();
+
+        LunchController controller = new LunchController(menu, view);
+
+        controller.studentRequestMenu();
+
+        controller.setLunchMenu("김밥, 떡볶이, 콜라");
+//        controller.updateView(); // 오늘 급식 메뉴: 김밥, 떡볶이, 콜라
+        controller.studentRequestMenu();
+
+        controller.setLunchMenu("김밥, 매운 떡볶이, 콜라");;
+//        controller.updateView(); // 오늘 급식 메뉴: 김밥, 매운 떡볶이, 콜라
+        controller.studentRequestMenu();
+
+        controller.setLunchMenu("");
+
+        controller.studentRequestMenu();
     }
 }
