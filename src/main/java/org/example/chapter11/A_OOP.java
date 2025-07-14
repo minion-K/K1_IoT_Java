@@ -87,7 +87,7 @@ class AllergyStudent implements LunchMenuInterface {
 
 // 3. LSP(Liskov Substitution Principle, 리스코프 치환 원칙)
 // : 상위 클래스의 객체를 하위 클래스의 객체로 치환하더라도 프로그램의 동작이 일관되게 유지되어야 함
-// - 자식 클래스는 부모 클래스의 기능을 완정하게 대체할 수 있다. 
+// - 자식 클래스는 부모 클래스의 기능을 완전하게 대체할 수 있다. 
 // >> 업캐스팅 상태에서 부모의 메서드 사용 시 동작 가능
 
 // 1) 잘못된 설계 예시 - Student의 동작과 InjuredStudent가 같은 메서드를 통해 서로 다른 행동을 실행함
