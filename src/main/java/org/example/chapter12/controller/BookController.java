@@ -8,9 +8,15 @@ import java.util.List;
 public class BookController {
     //    실제 데이터들이 저장되는 리스트
     private List<Book> books;
+//    private final List<Book> books = new ArrayList<>(); - 필드 주입 형식
+//    >> 코드 간결화, 초기값 확인에 용이
 
-    public BookController() {
-        this.books = new ArrayList<>();
+//  생성자 주입 형식
+//    >> 유연성 증가, 생성자를 통해 다른 리스트로 주입 가능(EX. 테스트용 더미 리스트 등)
+//    >> 의존성 주입(DI) 구조로 변경 가능
+//    - 코드 복잡성 증가
+    public BookController(List<Book> books) {
+        this.books = books;
     }
 
     //    1. 책 추가(요청: 책 데이터 / 응답: X)
