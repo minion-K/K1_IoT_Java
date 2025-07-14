@@ -32,7 +32,7 @@ interface Workable { void work(); }
 interface Eatable { void eat(); }
 
 class Employee implements Workable,Eatable {
-//    인터페이스는 다중 구형 가능
+//    인터페이스는 다중 구현 가능
 
     @Override
     public void eat() {
