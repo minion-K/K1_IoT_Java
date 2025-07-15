@@ -10,8 +10,6 @@ package org.example.chapter13;
 * - Optional<T>: 값이 있을 수도 없을 수도 있는 객체 Wrapper
 * */
 
-import org.example.chapter07.animalApp.Cat;
-
 import java.util.ArrayList;
 import java.util.List;
 
