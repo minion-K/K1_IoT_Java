@@ -8,7 +8,7 @@ public class StudentRequestDto {
     private String studentNumber;
 
     public StudentRequestDto(String name, int age, String studentNumber) {
-        this. name = name;
+        this.name = name;
         this.age = age;
         this.studentNumber = studentNumber;
     }
