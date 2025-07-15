@@ -55,7 +55,7 @@ class Pizza {
             private final String menu;
             private final String size;
 
-//            선택 필드: 기본값 설정 (추가하지 ㅇ낳으면 해당 값으로 출력)
+//            선택 필드: 기본값 설정 (추가하지 않으면 해당 값으로 출력)
             private boolean cheese = false;
             private boolean mushroom = false;
             private boolean pepperoni = false;
