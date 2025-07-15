@@ -96,6 +96,19 @@ class LombokClass {
 
 public class G_Lombok {
     public static void main(String[] args) {
+        LombokClass lombokClass1 = new LombokClass("자바는 재밌어", "이승아", "코리아");
+        LombokClass lombokClass2 = new LombokClass("자바를 잡아", "이도경");
 
+        LombokClass lombokClass3 = new LombokClass.LombokClassBuilder()
+//                @Builder 에서 필수 체크 값 X
+//                : Lombok이 내부에서 빌더 전용 생성자를 생성 초기화를 우회 (예외)
+                .title("자바자바자바")
+//                @Builder: @NonNull이 있는 필드에 대해 값을 할당하지 않으면 NullPointerException 발생
+                .author("조승범")
+                .build();
+
+        System.out.println(lombokClass1);
+        System.out.println(lombokClass2);
+        System.out.println(lombokClass3);
     }
 }
