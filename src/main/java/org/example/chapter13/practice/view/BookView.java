@@ -38,7 +38,7 @@ public class BookView {
     }
 //    문자열 데이터 입력
 public String getInputString(String data) {
-//        sc.nextLine();
+
     System.out.println("도서" + data + "(을)를 입력하세요");
     String value = sc.nextLine().trim(); // 문자열.trim() : 문자열 양쪽의 공백을 제거 " 안녕     " >> "안녕"
     
