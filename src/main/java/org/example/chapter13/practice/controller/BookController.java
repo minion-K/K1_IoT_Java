@@ -18,7 +18,7 @@ public class BookController {
             int choice = view.getInputMenuNumber();
 
             switch (choice) {
-                case 1: // 책 추가: 요천 데이터 O, 반환 데이터 X
+                case 1: // 책 추가: 요청 데이터 O, 반환 데이터 X
                     Book book = view.getBookDetails();
                     if(book != null) service.addBook(book);
                     else System.out.println("필수 데이터 값을 다시 확인하여 주세요");
