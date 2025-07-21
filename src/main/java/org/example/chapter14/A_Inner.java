@@ -98,7 +98,7 @@ abstract class AbstractClass {
 }
 
 //인터페이스
-interface interfaceClass {
+interface InterfaceClass {
 //    cf) 인터페이스는 일반 구현 메서드를 가질 수 없음
 //          >> 추상 메서드에 abstract 생략 가능
 
@@ -132,5 +132,40 @@ public class A_Inner {
         System.out.println("=== 메서드 내부 클래스 (지역 클래스) ===");
         OuterClass outerClass2 = new OuterClass();
         outerClass2.outerMethod();
+        System.out.println();
+
+        System.out.println("=== 익명 (내부) 클래스 ===");
+//        클래스타입 변수명 = new 클래스명() {
+//              메서드 구현(추상 클래스 | 인터페이스의 추상 메서드)
+//        }
+        
+//        new 클래스생성자호출();
+        AbstractClass abstractClass1 = new AbstractClass() {
+            @Override
+            void display() {
+                System.out.println("익명 내부 클래스 - 추상 클래스1");
+            }
+        }; // 세미콜론 필수
+        abstractClass1.display();
+
+        AbstractClass abstractClass2 = new AbstractClass() {
+            @Override
+            void display() {
+                System.out.println("익명 내부 클래스 - 추상 클래스2");
+            }
+        };
+        abstractClass2.display();
+
+        System.out.println(abstractClass1 == abstractClass2); // false
+        
+//        >> 클래스 정의가 외부에서 재사용 될 필요가 없거나, 단 한번의 사용 목적에 유용
+
+        InterfaceClass interfaceClass = new InterfaceClass() {
+            @Override
+            public void something() {
+                System.out.println("인터페이스로 구현한 익명 클래스");
+            }
+        };
+        interfaceClass.something();
     }
 }
