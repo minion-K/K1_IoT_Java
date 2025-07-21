@@ -3,7 +3,7 @@ package org.example.chapter14;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-// == 학교 시스템 ==
+// == 학교 시스템 == //
 @Getter
 @AllArgsConstructor // 모든 필드를 생성자의 매개변수로 전달받아 필드의 초기값으로 지정
 class School {
