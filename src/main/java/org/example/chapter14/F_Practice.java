@@ -24,7 +24,7 @@ public class F_Practice {
         studentScores.put("박현우", 85);
         studentScores.put("김승민", 100);
         
-//        [2] Predicate: 점수가 90점 이상인지 판단하는 조건 함수
+//        [2] Predicate: 점수가 90점 이상인지 판별하는 조건 함수
         Predicate<Integer> isPass = score -> score >= 90;
 
 //        [3] Function: 점수를 학점(등급)으로 변환하는 함수
