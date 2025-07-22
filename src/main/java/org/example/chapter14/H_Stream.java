@@ -60,7 +60,7 @@ public class H_Stream {
         System.out.println(names);
 
 //        1. 데이터 소스화 (Stream 생성)
-//        데이터. Stream();
+//        데이터.Stream();
 
        Stream<String> streamNames = names.stream();
 //        2. 중간 연산
