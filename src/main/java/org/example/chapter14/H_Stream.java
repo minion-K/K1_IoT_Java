@@ -124,7 +124,7 @@ public class H_Stream {
 //        6)
         System.out.println("이름 길이의 합 구하기");
         int totalLength = names.stream()
-                .map(name -> name.length())
+                .map(String::length)
 //                .reduce(초기값, 합산식)
 //                .reduce(0, (a, b) -> (a + b)); - a는 최신값(누적값), b는 순회값
                 .reduce(0, Integer::sum);
