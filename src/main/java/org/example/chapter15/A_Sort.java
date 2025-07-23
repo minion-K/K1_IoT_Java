@@ -24,8 +24,7 @@ package org.example.chapter15;
 * : Arrays 클래스의 정적 메서드 (.sort()) 사용
 * >> 오름차순 정렬만 지원
 *    내림차순 정렬 - Collections 클래스 사용 .reverseOrder() 정적 메서드 사용
-* 
-* 
+*
 * 3. 리스트(List 인터페이스) 정렬
 * : Collections.sort()
 * - Collections.sort() || List 인터페이스의 sort() 사용
