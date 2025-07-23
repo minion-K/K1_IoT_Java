@@ -72,7 +72,7 @@ public class A_Sort {
 
 //        == 내림차순 ==
         Collections.sort(list, Collections.reverseOrder());
-        System.out.println(list);
+        System.out.println(list); // [6, 4, 3, 2, 1]
 
 //        == Comparator 클래스 ==
 //        : 사용자 정의 기준 정렬
