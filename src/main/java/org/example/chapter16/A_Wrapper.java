@@ -9,7 +9,7 @@ package org.example.chapter16;
 *  >> 각 데이터 타입에 해당하는 Wrapper 클래스가 존재
 * 
 * cf) java.lang 패키지에 저장
-*       : 컬렌션 프레임워크에서는 내부에 객체만을 저장
+*       : 컬렉션 프레임워크에서는 내부에 객체만을 저장
 *       - 기본 타입을 Wrapper 클래스로 변환하여 저장
 *       >> Integer, Character 등 (외에는 시작 알파벳 대문자 변환)
 *
