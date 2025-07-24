@@ -12,6 +12,8 @@ package org.example.chapter16;
 
 import lombok.*;
 
+import java.util.Date;
+
 // 1) DTO
 // : 계층 간 데이터 교환을 위해 사용하는 객체
 // - 로직을 가지지 않는 순수한 데이터 객체 (비즈니스 로직 X, Getter & Setter만 존재)
@@ -48,10 +50,44 @@ class Address {
 // >> 일반적으로 JDBC 또는 JPA, MyBatis 등을 통해 구현
 // >> Spring 기반 프로젝트에서 Repository 또는 Mapper로 대체
 
-public class D_Data {
-    public static void main(String[] args) {
-        
+// JDBC 기반 (Java + DataBase)
+@AllArgsConstructor
+class UserResponseDto {
+    String id;
+    String nickname;
+}
+
+// 실질적인 로직인 DAO 대신 JPA - Repository interface를 사용
+class UserDao {
+//    로그인 시 userId로 사용자 조회
+    public UserResponseDto getUserById(String userId) {
+//        DB에 접근해 해당 userId 사용자의 닉네임을 조회했다고 가정
+        String id = "qwe";
+        String nickname = "개구리";
+
+        return new UserResponseDto(id, nickname);
     }
+}
+
+// 4) Entity
+// : 실제 데이터베이스의 테이블에 해당하는 데이터 구조와 매핑되는 클래스
+// - JPA(Java Persistence API)와 같은 ORM(Object-Related Mapping) 툴에서 사용
+// - DB의 각 레코드와 매핑
+// > @Entity, @Id, @Column 등을 사용
+@Getter
+@Setter
+//@Entity - entity 클래스 임을 명시
+//@Table(name = "users") - DB의 users 테이블과 연결을 명시
+class User {
+    private Long id;
+    private String userId;
+    private String password;
+    private String name;
+    private String email;
+    private Date createdAt; // 해당 데이터가 생성된 일시 - 회원가입 날짜
+}
+
+public class D_Data {
 }
 
 
