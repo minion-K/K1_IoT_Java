@@ -30,7 +30,7 @@ public class BookServiceImpl implements BookService{
 //        List<Item> result = new ArrayList<>();
 //
 //        for(Item item: items) {
-////            다운캐스팅 가능한 지 확인
+//            다운캐스팅 가능한 지 확인
 //            if(item instanceof Book && ((Book) item).getCategory() == category) {
 //                result.add(item);
 //            }
