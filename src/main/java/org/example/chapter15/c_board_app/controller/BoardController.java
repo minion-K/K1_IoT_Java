@@ -84,7 +84,7 @@ public class BoardController {
         String author = dto.getAuthor();
 
 //        && 하나라도 false면 false
-//        >> title, content, author 모두 null 값이 아니고 비워져 있지 않음
+//        >> title, content, author 모두 null 값이 아니고 비워져있지 않음
 
 //        1) null: 아무런 값을 참조하지 않음 (주소값 X)
 //        2) isEmpty(): 비어 있는지 확인하는 메서드, 값(주소)은 존재하지만 그 내부 내용이 비워짐을 확인
