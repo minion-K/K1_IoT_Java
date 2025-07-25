@@ -1,5 +1,16 @@
 package org.example.z_project.phr_solution;
 
+import org.example.z_project.phr_solution.controller.PatientController;
+import org.example.z_project.phr_solution.dto.patient.request.PatientCreateRequestDto;
+import org.example.z_project.phr_solution.dto.patient.request.PatientUpdateRequestDto;
+import org.example.z_project.phr_solution.dto.patient.response.PatientDetailResponseDto;
+import org.example.z_project.phr_solution.dto.patient.response.PatientListResponseDto;
+import org.example.z_project.phr_solution.handler.InputHandler;
+import org.example.z_project.phr_solution.handler.MenuPrinter;
+
+import java.util.List;
+
+
 /**
  * === PHR (개인 건강 기록, Personal Health Record) 솔루션 ===
  * 
@@ -21,11 +32,89 @@ package org.example.z_project.phr_solution;
  * 
  * 4. 실행 및 관리
  * - App.java: 프로그램 실행에 대한 진입점, 사용자와의 상호작용을 관리하고 전체 흐름을 제어
+ *          >> App.java가 사용자 입력처리, 메뉴 출력, 흐름 제어 모두 담당 -> SRP(단일 책임 원칙) 위반
+ *          >> handler + App.java로 구분
  */
 
 
 public class App {
+    private static final PatientController patientController = new PatientController();
+    
+    private static boolean processChoice(int choice) {
+        switch (choice) {
+//            환자 관련 기능
+            case 1: {
+                PatientCreateRequestDto requestDto = InputHandler.createPatientRequest();
+
+                if(requestDto == null) {
+                    System.out.println("필수 입력 값을 유효하게 입력해야합니다.");
+                    break;
+                }
+                patientController.registerPatient(requestDto);
+                break;
+            }
+            case 2: {
+                List<PatientListResponseDto> patients = patientController.getAllPatients();
+                if(patients.isEmpty()) {
+                    System.out.println("환자 정보가 없습니다.");
+                } else {
+                    patients.forEach(System.out::println);
+                }
+                break;
+            }
+            case 3: {
+                long id = InputHandler.getIdInput();
+                PatientDetailResponseDto patient = patientController.getPatientById(id);
+                if(patient == null) {
+                    System.out.println("해당하는 ID의 환자가 없습니다.");
+                } else {
+                    System.out.println(patient);
+                }
+                break;
+            }
+            case 4: {
+                long id = InputHandler.getIdInput();
+                PatientUpdateRequestDto requestDto = InputHandler.updatePatientRequest();
+
+                if(requestDto == null) {
+                    System.out.println("필수 입력 값을 유효하게 입력해야합니다.");
+                    break;
+                }
+
+                patientController.updatePatient(id, requestDto);
+                break;
+            }
+            case 5: {
+                long id = InputHandler.getIdInput();
+                patientController.deletePatient(id);
+                break;
+            }
+
+            // 건강 기록 관련
+
+            case 10: {
+                System.out.println("프로그램을 종료합니다.");
+                return false;
+            }
+            default: {
+                System.out.println("잘못된 선택입니다. 유효한 메뉴를 선택해주세요");
+                break;
+            }
+        }
+        return true;
+    }
     public static void main(String[] args) {
-        
+        try {
+            while(true) {
+                MenuPrinter.displayMenu();
+                int choice = InputHandler.getChoice();
+                if(!processChoice(choice)) break; // process choice의 반환값이 false면 로직 종료
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+//            예외 발생 상관없이 반드시 실행
+            InputHandler.closeScanner();
+        }
     }
 }
