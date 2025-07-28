@@ -19,6 +19,9 @@ public class MenuPrinter {
         System.out.println("9. 건강 기록 삭제");
 
         System.out.println("10. 프로그램 종료");
+        System.out.println("11. 진단 기록 카운팅");
+        System.out.println("12. 연령대별 필터링");
+        System.out.println("13. 특정 기간 내 진단기록");
         System.out.print("메뉴를 선택하세요 >> ");
     }
 }

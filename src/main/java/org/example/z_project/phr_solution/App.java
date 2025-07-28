@@ -1,14 +1,19 @@
 package org.example.z_project.phr_solution;
 
+import org.example.z_project.phr_solution.controller.HealthRecordController;
 import org.example.z_project.phr_solution.controller.PatientController;
+import org.example.z_project.phr_solution.dto.heath_record.request.RecordCreateRequestDto;
+import org.example.z_project.phr_solution.dto.heath_record.response.RecordListResponseDto;
 import org.example.z_project.phr_solution.dto.patient.request.PatientCreateRequestDto;
 import org.example.z_project.phr_solution.dto.patient.request.PatientUpdateRequestDto;
 import org.example.z_project.phr_solution.dto.patient.response.PatientDetailResponseDto;
 import org.example.z_project.phr_solution.dto.patient.response.PatientListResponseDto;
 import org.example.z_project.phr_solution.handler.InputHandler;
 import org.example.z_project.phr_solution.handler.MenuPrinter;
+import org.example.z_project.phr_solution.util.DateValidator;
 
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -39,6 +44,7 @@ import java.util.List;
 
 public class App {
     private static final PatientController patientController = new PatientController();
+    private static final HealthRecordController healthRecordController = new HealthRecordController();
     
     private static boolean processChoice(int choice) {
         switch (choice) {
@@ -91,10 +97,59 @@ public class App {
             }
 
             // 건강 기록 관련
+            case 6: {
+                RecordCreateRequestDto requestDto = InputHandler.createRequest();
 
+                if(requestDto == null) {
+                    System.out.println("필수 입력 값을 유효하게 입력해야합니다.");
+                    break;
+                }
+                healthRecordController.createRecord(requestDto);
+                break;
+            }
+            case 7: {
+                List<RecordListResponseDto> records = healthRecordController.getAllRecords();
+
+                if(records.isEmpty()) {
+                    System.out.println("건강 기록이 없습니다.");
+                } else {
+                    records.forEach(System.out::println);
+                }
+                break;
+            }
+            case 8: {
+                String diagnosisFilter = InputHandler.getInput("필터 조건 [ 진단명 ]");
+                List<RecordListResponseDto> filterRecords = healthRecordController.filterRecordsByDiagnosis(diagnosisFilter);
+
+                if(filterRecords.isEmpty()) {
+                    System.out.println("검색 결과를 찾을 수 없습니다.");
+                } else {
+                    filterRecords.forEach(System.out::println);
+                }
+                break;
+            }
+            case 9: {
+                long id = InputHandler.getIdInput();
+                healthRecordController.deleteRecord(id);
+                break;
+            }
             case 10: {
                 System.out.println("프로그램을 종료합니다.");
                 return false;
+            }
+            case 11: { // 진단별 건강 기록 수 카운팅 (Map<String, Long>)
+                Map<String, Long> records = healthRecordController.filterRecordByDiagnosisCount();
+                System.out.println(records);
+                break;
+            }
+            case 12: { // 특정 연령대 환자의 건강 기록 목록 (예: 60대 이상)
+                int age = Integer.parseInt(InputHandler.getInput("검색할 나이를 입력해주세요: "));
+                List<RecordListResponseDto> dtos = healthRecordController.filterRecordsByAge(age);
+                dtos.forEach(System.out::println);
+                break;
+            }
+            case 13: { // 특정 기간 내 진료 기록 조회 (날짜 필터링)
+
             }
             default: {
                 System.out.println("잘못된 선택입니다. 유효한 메뉴를 선택해주세요");

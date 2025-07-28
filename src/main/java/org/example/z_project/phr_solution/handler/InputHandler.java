@@ -1,5 +1,6 @@
 package org.example.z_project.phr_solution.handler;
 
+import org.example.z_project.phr_solution.dto.heath_record.request.RecordCreateRequestDto;
 import org.example.z_project.phr_solution.dto.patient.request.PatientCreateRequestDto;
 import org.example.z_project.phr_solution.dto.patient.request.PatientUpdateRequestDto;
 
@@ -23,23 +24,11 @@ public class InputHandler {
         while(true){
             System.out.print(prompt + ": ");
             String input = sc.nextLine().trim(); // .trim(): 문자열 양쪽 공백을 제거
-            boolean isDigit = true;
 
-            for(int i = 0; input.length() > i; i++){
-                if(Character.isDigit(input.charAt(i))) {
-                    isDigit = true;
-                }
-            }
             if(!input.isEmpty()) {
-                if(!isDigit) {
-                    return input;
-                }
-                System.out.println("유효하지 않은 입력입니다. 다시 입력해주세요.");
-            } else {
-                System.out.println("입력값을 비워둘 수 없습니다. 다시 입력해주세요");
+                 return input;
             }
-
-
+            System.out.println("입력값을 비워둘 수 없습니다. 다시 입력해주세요");
         }
     }
 
@@ -65,6 +54,7 @@ public class InputHandler {
             String gender = getInput("환자 성별을 입력해주세요");
 
             dto = new PatientCreateRequestDto(name, age, gender);
+
         } catch (NumberFormatException e) {
             System.out.println("환자 나이는 숫자로 입력해주세요: " + e.getMessage());
         } catch (Exception e) {
@@ -85,6 +75,26 @@ public class InputHandler {
             dto = new PatientUpdateRequestDto(name, age);
         } catch (NumberFormatException e) {
             System.out.println("환자 나이는 숫자로 입력해주세요: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return dto;
+    }
+
+//    2) 건강 기록 정보 - 생성
+    public static RecordCreateRequestDto createRequest() {
+        RecordCreateRequestDto dto = null;
+
+        try {
+            long patientId = getIdInput();
+            String dateOfVisit = getInput("방문 날짜를 입력하세요(예: 2025-07-25)");
+//            문자열의 포맷이 DateTime과 다를 경우 ?
+            String diagnosis = getInput("진단명을 입력하세요");
+            String treatment = getInput("처방 내용을 입력하세요");
+
+            dto = new RecordCreateRequestDto(patientId, dateOfVisit, diagnosis, treatment);
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
